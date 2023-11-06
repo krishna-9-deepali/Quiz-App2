@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script type="module" src="">
+        var chalk = require('chalk');
+var readlinesync = require('readline-sync');
+console.log(chalk.hex('#e224f0').bold("Welcome to Marvel quiz"));
+console.log("");
+console.log(chalk.hex('#e2faca')("Following is Rules to play"));
+console.log("");
+console.log(chalk.hex('#2157ad')("1:There are 2 levels of quiz.Each level has 5 question."));
+console.log(chalk.hex('#2157ad')("2:For each correct answer score added with 2 points and for wrong answer has got 0 point."));
+console.log(chalk.hex('#2157ad')("3:For qualify level 1, you have to earn  at least 10 points."));
+console.log(chalk.hex('#2157ad')("4:Type a,b,c,d keys for Answer only."));
+
+console.log("");
+var wannaPlay = readlinesync.keyInYNStrict(chalk.hex('#e2faca')("Do you want to play Quiz ? press y for play n for exit"), { limit: 'ynYN' });
+console.log("");
+if (wannaPlay === true) {
+  var score = 0;
+  var readlinesync = require('readline-sync');
+  var userName = readlinesync.question(chalk.hex('#e224f0')("Enter your name "));
+  console.log("");
+  console.log(chalk.hex('#2157ad')("WELCOME ") + chalk.hex('#e2faca')(userName.toUpperCase()) + chalk.hex('#2157ad')(" To LEVEL 1"));
+
+  console.log("-----------------------------------");
+  console.log()
+  var questions = [
+    {
+      question: "Q1.which movie is the part of marvel?",
+      option1: "a:Thor: The Dark World",
+      option2: "b:Gladiator",
+      option3: "c:The Dark-Knight",
+      option4: "d:None of the above",
+      answer: "a"
+    },
+    {
+      question: "Q2. In which movie Robert Downey Jr. paly the lead Hero?",
+      option1: "a:Doctor Strange",
+      option2: "b:Iron Man",
+      option3: "c:Ant-Man",
+      option4: "d:Thor",
+      answer: "b"
+    },
+    {
+      question: "Q3. In which year marvel's first  movie Released ?",
+      option1: "a:2005",
+      option2: "b:2006",
+      option3: "c:2007",
+      option4: "d:2008",
+      answer: "d"
+    },
+    {
+      question: "Q4.Which  one is the  Marvel's first movie?",
+      option1: "a:Iron Man",
+      option2: "b:Thor",
+      option3: "c:Captain America: The First Avenger",
+      option4: "d:Guardians of the Galaxy",
+      answer: "a"
+    },
+    {
+      question: "Q5.Who is the  lead actress of Iron-ManI?",
+      option1: "a:Elizabeth Olsen",
+      option2: "b:Emmastone",
+      option3: "c:Gwyneth Paltrow",
+      option4: "d:Angelina Jolie",
+      answer: "c"
+    },
+    {
+      question: "Q6.The MARVEL movie which realesed in 2022 is ?",
+      option1: "a:Spider-Man: No Way Home",
+      option2: "b:Eternals",
+      option3: "c:Doctor Strange in the Multiverse of Madness",
+      option4: "d:Ant-Man and the Wasp: Quantumania",
+      answer: "c"
+    },
+    {
+      question: "Q7.Highest Grossing Marvel Movies of All Time is ?",
+      option1: "a:Avengers: Endgame (2019)",
+      option2: "b:Spider-Man: No Way Home (2021)",
+      option3: "c:Black Panther (2018)",
+      option4: "d:Iron Man 3 (2013)",
+      answer: "a"
+    },
+    {
+      question: "Q8.Who is the villain of Avengers: Infinity War?",
+      option1: "a:loki",
+      option2: "b:ultron",
+      option3: "c:Venom",
+      option4: "d:Thanos",
+      answer: "d"
+    },
+    {
+      question: "Q9.Name of the villain who consumes planets to sustain his life force",
+      option1: "a:Electro",
+      option2: "b:Mephisto",
+      option3: "c:Galactus",
+      option4: "d:ultron",
+      answer: "c"
+    },
+    {
+      question: "Q10. In which movie Tony stark dies?",
+      option1: "a:Thor: The Dark World",
+      option2: "b:Avengers: Infinity War",
+      option3: "c:Avengers: Endgame",
+      option4: "d:Guardians of the Galaxy Vol. 3 (2023)",
+      answer: "c"
+    }
+
+  ];
+  function play(question, answer, option1, option2, option3, option4) {
+    console.log(chalk.hex('#0000FF').italic(question));
+    console.log(chalk.hex('#800000')(option1));
+    console.log(chalk.hex('#800000')(option2));
+    console.log(chalk.hex('#800000')(option3));
+    console.log(chalk.hex('#800000')(option4));
+
+    var userAnswer = readlinesync.question("");
+
+    if (userAnswer.toUpperCase() === answer.toUpperCase()) {
+      console.log();
+      score = score + 2;
+      console.log(chalk.hex('#f6e2b9')("You Are Right Your Score is :" + score));
+    }
+    else {
+      console.log();
+      console.log(chalk.hex('#f6e2b9')("You Are Wrong Your Score is :" + score));
+    }
+    console.log();
+    console.log("-----------------------------------");
+
+  }
+  for (var i = 0; i < 5; i++) {
+
+    play(questions[i].question, questions[i].answer, questions[i].option1, questions[i].option2, questions[i].option3, questions[i].option4)
+  }
+
+  if (score === 10) {
+    console.log();
+    console.log(chalk.hex('#e2faca')("Congratulations you are qualified for level 2"));
+    console.log("");
+    var wannaPlaylevel2 = readlinesync.keyInYNStrict(chalk.hex('#e2faca')("Do you want to play the level two ? press y for play n for exit"), { limit: 'ynYN' });
+    console.log("");
+
+    if (wannaPlaylevel2 === true) {
+      for (var i = 5; i < 10; i++) {
+
+        play(questions[i].question, questions[i].answer, questions[i].option1, questions[i].option2, questions[i].option3, questions[i].option4)
+      }
+    }
+    else {
+      console.log(chalk.hex('#e224f0')(" THANK YOU FOR PLAYING THE LEVEL 1."));
+    }
+  }
+  else {
+    console.log(chalk.hex('#e224f0')("SORRY YOU DONT QUALIFY LEVEL 1 TRY AGAIN!"));
+  }
+  if (score === 20)
+    console.log(chalk.hex('#e224f0')("CONGRATULATIONS YOU ARE WINNER WITH HIGHEST SCORE"));
+}
+
+
+
+else if (wannaPlay === false) {
+  console.log("");
+  console.log("----------------------------------------------");
+  console.log(chalk.hex('#e224f0')("Thank you for visiting this Quiz."));
+  console.log("---------------------------------------------");
+  console.log("");
+}
+</script>
+</body>
+</html>
